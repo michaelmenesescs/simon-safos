@@ -14,3 +14,44 @@ a {
 * {
   box-sizing: border-box;
 }
+
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+}
+
+
+
+@font-face {
+    font-family: 'Gogoia';
+    src: url('../public/assets/fonts/GOGOIA-Regular.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Futura-Regular';
+    src: url('../public/assets/fonts/futuran.ttf') format('truetype');
+}
+@font-face {
+    font-family: 'Futura-Light';
+    src: url('../public/assets/fonts/FuturaPTLightOblique.otf') format('opentype');
+}
+
+@font-face {
+    font-family: 'Typographica';
+    src: url('../public/assets/fonts/typographica.ttf') format('opentype');
+  
+}
