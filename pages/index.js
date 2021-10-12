@@ -27,6 +27,22 @@ const About = styled.div`
     font-size: 20px;  
 `;
 
+
+const Contact = styled.div`
+  display:flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 20px;
+  color: white;
+`
+
+const Links = styled.div`
+  display:flex;
+  flex-direction: row;
+  padding: 20px;
+  
+`
+
 const propTypes = {
   home: ["art", "photography", "music", "about"],
   art: ["oil", "charcoal", "subwayseries", "digital", "multimedia"],
@@ -36,22 +52,36 @@ const propTypes = {
 
 export default function Home(props) {
   return (
-
     <Container>
-      
       <Head>
-        <title>Simon Safos</title>
+        <title>Simón Safos</title>
         <meta name="description" content="Simon Safos, A creative from New York City" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={styles.bgWrap}>
-          <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
+            <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
       </div>
       <ResponsiveNavbar />
 
       <About>
-        Welcome, I’m a creative out of Queens, New York City. Enjoy the many works and vehicle of creation that are all things me.
+        Welcome, Enjoy the many works and vehicles of creation that are the foundations that make Simón.
       </About>
+
+      <Contact>
+          contact:inquiries@studiosafos.com
+
+
+      </Contact>
+      <Links>
+        <a href = {"https://www.instagram.com/simonsafos/"} >
+          <img src = {"/IG.PNG"} alt = "Instagram" width="30px" height="30px"/>
+        </a>
+        <a href = {"https://www.instagram.com/simonsafos/"} >
+          <img src = {"/behance.png"} alt = "Instagram" width="30px" height="30px"/>
+        </a>
+      </Links>
+
+
     </Container>
   )
 }
@@ -60,8 +90,9 @@ export default function Home(props) {
 export async function getStaticProps(context) {
 
 
-  let url = process.env.URL
+  let url = "https://api-ca-central-1.graphcms.com/v2/ckui3azur0w7s01xqhu545bmx/master"
   let token = process.env.GRAPH_CMS_TOKEN
+
 
   const graphQLCLient = new GraphQLClient(url, {
     headers: {
@@ -78,6 +109,7 @@ export async function getStaticProps(context) {
   `
   const data = await graphQLCLient.request(query)
   let link = data.values.url
+  
 
   return {
     props: {

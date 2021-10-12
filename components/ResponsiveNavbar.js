@@ -19,6 +19,7 @@ const StyledNavbar = styled(Navbar)`
     backdrop-filter: blur(6px);
     padding-left: 40px;
     align-items: center;
+    justify-content: space-between;
 `
 const BlockL = styled.div`
     display:flex;
@@ -39,7 +40,6 @@ const BlockR = styled.div`
     font-size: 30px;
     padding: 20px;
     color:white;
-    justify-content: space-evenly;
 `;
 
 const StyledLink = styled(Nav.Link)`
@@ -50,12 +50,12 @@ const StyledLink = styled(Nav.Link)`
 
 const StyledNav = styled(Nav)`
   display: flex;
-  justify-content: space-evenly;
+  width: 50%;
 `;
 
 const ResponsiveNavbar  = (content) => {
   return (
-      <StyledNavbar collapseOnSelect expand="lg">
+      <StyledNavbar collapseOnSelect expand="md">
         <BlockL>
           <StyledLink href="/"> Simón Safos </StyledLink>
         </BlockL>
@@ -65,7 +65,7 @@ const ResponsiveNavbar  = (content) => {
               {
                   propTypes.home.map(item => {
                     return (
-                      <StyledLink href={`/${item}`}> {item} </StyledLink>
+                      <StyledLink key={item.valueOf()} href={`/${item}`}> {item} </StyledLink>
                       )
                     })
               }
@@ -73,7 +73,7 @@ const ResponsiveNavbar  = (content) => {
           </StyledNavbar.Collapse>
           <StyledNavbar.Toggle aria-controls="responsive-navbar-nav" />
         </BlockR>
-      </StyledNavbar>
+        </StyledNavbar>
   )
 }
 

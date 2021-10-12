@@ -1,5 +1,5 @@
 import React from 'react'
-import ArtNavbar from '../../../components/ArtNavbar'
+import PhotoNavbar from '../../../components/PhotoNavbar'
 import Painting from '../../../components/Painting'
 import styled from 'styled-components'
 import { bgWrap, bgText } from '../../../styles/Home.module.css'
@@ -19,7 +19,7 @@ const Paintings = styled.div`
     background: rgba(0, 0, 0, 0.15);
     box-shadow: inset 1px 6px 5px rgba(0, 0, 0, 0.36);
     backdrop-filter: blur(2px);
-    flex: 3;
+    flex: 3 1 auto;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
 `;
@@ -40,31 +40,31 @@ const index = (props) => {
     return (
         <Container>
             <div className={bgWrap}>
-                <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
+                <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            <ArtNavbar />
+            <PhotoNavbar />
             <PaintingContainer>
-            <Paintings>
-            {
-                props.paintings.map(painting => {
-                    return (
-                        <Wrapper>
-                        <Painting 
-                            image={painting.image.url} 
-                            width={264}    
-                            height={304} 
-                            title={painting.title}
-                            year={2021}
-                            dimensions={painting.dimensions}
-                            key = {painting.id}
-                            type = {painting.type}
-                        />
-                    </Wrapper>
-                    )
-                })
-                
-            }
-            </Paintings>
+                <Paintings>
+                    {
+                        props.paintings.map(painting => {
+                            return (
+                                <Wrapper>
+                                    <Painting
+                                        image={painting.image.url}
+                                        width={264}
+                                        height={304}
+                                        title={painting.title}
+                                        year={2021}
+                                        dimensions={painting.dimensions}
+                                        key={painting.id}
+                                        type={painting.type}
+                                    />
+                                </Wrapper>
+                            )
+                        })
+
+                    }
+                </Paintings>
             </PaintingContainer>
         </Container>
     )
@@ -89,34 +89,36 @@ export async function getStaticProps(context) {
     })
 
     const query = gql`
-    query MyQuery {
-        paintings(where: {page: "oil"}) {
-          id
-          title
-          type
-          dimensions
-          year
-          image {
+        query MyQuery {
+            paintings(where: {page: "process"}, orderBy: id_ASC) {
+            id
+            title
+            type
+            dimensions
+            year
+            image {
+                url
+                fileName
+            }
+            }
+            asset(where: {id: "ckun50ymg6ngw0c33oao7u32t"}) {
             url
-          }
-        }
-        
-        asset(where: {id: "ckum9y1rc6amt0c3357ox0kbh"}){
-          url
-          fileName
-        }
-      }
+            fileName
+            }
+        } 
       `
     const data = await graphQLCLient.request(query)
 
     let paintings = data.paintings
     let backgroundURL = data.asset.url
 
+
+
     return {
         props: {
-            paintings, 
+            paintings,
             backgroundURL
-            
+
         }, // will be passed to the page component as props
     }
 }

@@ -52,6 +52,6 @@ a {
 
 @font-face {
     font-family: 'Typographica';
-    src: url('../public/assets/fonts/typographica.ttf') format('opentype');
+    src: url('../public/assets/fonts/typographica.otf') format('opentype');
   
 }

@@ -12,7 +12,7 @@ const Container = styled.div`
     box-shadow: ${p => p.shadow ? 'white':'inset 3px 7px 4px 4px rgba(0, 0, 0, 0.25)'};
     border-radius:10px;
     padding: 15px;
-    background-color: ${p => p.bgcolor ? 'bgcolor' : 'linear-gradient(180deg, rgba(0, 0, 0, 0.2408) 0%, rgba(0, 0, 0, 0.2604) 100%)'};
+    background-color: ${p => p.bgcolor ? 'white': 'linear-gradient(180deg, rgba(0, 0, 0, 0.2408) 0%, rgba(0, 0, 0, 0.2604) 100%)'};
     backdrop-filter: blur(8px); 
     font-family: 'Futura-Light';
     font-size: 16pt;
@@ -24,7 +24,7 @@ const PaintingImage = styled(Image)`
 `;
 
 const Description = styled.div`
-    color: ${p => p.text ? 'text' : 'white'};
+    color: ${p => p.text ? 'black' : 'white'};
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -44,7 +44,7 @@ const Painting = ({title, type, year, dimensions, image, width, height, backgrou
                 {title}
             </Description>
                 <Description text={text}>
-                    {type}, {year} {dimensions}
+                    {type}, {year}, {dimensions}
                 </Description>
            </Subtext>
        </Container>

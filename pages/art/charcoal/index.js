@@ -31,7 +31,7 @@ const Wrapper = styled.div`
 
 const PaintingContainer = styled.div`
     display: flex;
-    padding: 20px;
+    padding: 10px;
     flex: 3;
 
 `;
@@ -90,7 +90,7 @@ export async function getStaticProps(context) {
 
     const query = gql`
     query MyQuery {
-        paintings(where: {page: "oil"}) {
+        paintings(where: {page: "charcoal"}) {
           id
           title
           type
@@ -101,14 +101,18 @@ export async function getStaticProps(context) {
           }
         }
         
-        asset(where: {id: "ckum9y1rc6amt0c3357ox0kbh"}){
+        asset(where: {id: "ckumailq86b1d0c33yawzpfvt"}){
           url
           fileName
         }
       }
+      
       `
     const data = await graphQLCLient.request(query)
 
+
+    console.log(data)
+    
     let paintings = data.paintings
     let backgroundURL = data.asset.url
 

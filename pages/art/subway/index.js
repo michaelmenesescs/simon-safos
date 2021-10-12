@@ -40,7 +40,7 @@ const index = (props) => {
     return (
         <Container>
             <div className={bgWrap}>
-                <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
+                <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
             <ArtNavbar />
             <PaintingContainer>
@@ -89,23 +89,22 @@ export async function getStaticProps(context) {
     })
 
     const query = gql`
-    query MyQuery {
-        paintings(where: {page: "oil"}) {
-          id
-          title
-          type
-          dimensions
-          year
-          image {
+        query MyQuery {
+            paintings(where: {page: "subway"}, orderBy: title_ASC) {
+            id
+            title
+            type
+            dimensions
+            year
+            image {
+                url
+            }
+            }
+            asset(where: {id: "ckumyvxu06kzi0c33hqg6tbt9"}) {
             url
-          }
+            fileName
+            }
         }
-        
-        asset(where: {id: "ckum9y1rc6amt0c3357ox0kbh"}){
-          url
-          fileName
-        }
-      }
       `
     const data = await graphQLCLient.request(query)
 

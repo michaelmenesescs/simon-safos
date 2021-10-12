@@ -33,38 +33,41 @@ const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
     flex: 3;
-
 `;
+
+let white = "#FFFFF"
 
 const index = (props) => {
     return (
         <Container>
             <div className={bgWrap}>
-                <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
+                <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
             <ArtNavbar />
             <PaintingContainer>
-            <Paintings>
-            {
-                props.paintings.map(painting => {
-                    return (
-                        <Wrapper>
-                        <Painting 
-                            image={painting.image.url} 
-                            width={264}    
-                            height={304} 
-                            title={painting.title}
-                            year={2021}
-                            dimensions={painting.dimensions}
-                            key = {painting.id}
-                            type = {painting.type}
-                        />
-                    </Wrapper>
-                    )
-                })
-                
-            }
-            </Paintings>
+                <Paintings>
+                    {
+                        props.paintings.map(painting => {
+                            return (
+                                <Wrapper>
+                                    <Painting
+                                        image={painting.image.url}
+                                        width={264}
+                                        height={304}
+                                        title={painting.title}
+                                        year={2021}
+                                        dimensions={painting.dimensions}
+                                        key={painting.image.url}
+                                        type={painting.type}
+                                        backgroundcolor='white'
+                                        text='black'
+                                    />
+                                </Wrapper>
+                            )
+                        })
+
+                    }
+                </Paintings>
             </PaintingContainer>
         </Container>
     )
@@ -90,7 +93,7 @@ export async function getStaticProps(context) {
 
     const query = gql`
     query MyQuery {
-        paintings(where: {page: "oil"}) {
+        paintings(where: {page: "multimedia"}, orderBy: id_ASC) {
           id
           title
           type
@@ -98,25 +101,29 @@ export async function getStaticProps(context) {
           year
           image {
             url
+            fileName
           }
         }
-        
-        asset(where: {id: "ckum9y1rc6amt0c3357ox0kbh"}){
+        asset(where: {id: "ckun4k0a86nfg0b30aswhzpxa"}) {
           url
           fileName
         }
       }
+      
+       
       `
     const data = await graphQLCLient.request(query)
 
     let paintings = data.paintings
     let backgroundURL = data.asset.url
 
+
+
     return {
         props: {
-            paintings, 
+            paintings,
             backgroundURL
-            
+
         }, // will be passed to the page component as props
     }
 }
