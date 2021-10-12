@@ -74,10 +74,10 @@ export default function Home(props) {
       </Contact>
       <Links>
         <a href = {"https://www.instagram.com/simonsafos/"} >
-          <Image src = {"/IG.PNG"} alt = "Instagram" width="30px" height="30px "/>
+          <Image src = {"/IG.PNG"} alt = "Instagram" width="30px" height="30px" quality={100}/>
         </a>
         <a href = {"https://www.instagram.com/simonsafos/"} >
-          <img src = {"/behance.png"} alt = "Instagram" width="30px" height="30px"/>
+          <Image src = {"/behance.png"} alt = "Instagram" width="30px" height="30px" quality={100}/>
         </a>
       </Links>
 
