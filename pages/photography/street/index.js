@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link"
 import styled from "styled-components";
 import {Navbar, Nav} from "react-bootstrap/Navbar";
+import {gql, GraphQLCLient} from 'graphql-request'
 
 const colors = {
   green: "#3F452D",
