@@ -86,6 +86,8 @@ const photoPath = `/image/photography/streetphotography/`;
 const index = () => {
   return (
     <Photos>
+      {/*
+
       
       <PhotoNavbar color={colors.green} />
     
@@ -597,6 +599,7 @@ const index = () => {
           </Wrapper>
         </ColumnBreak>
       </GrayToOrange>
+      */}
     </Photos>
   );
 };

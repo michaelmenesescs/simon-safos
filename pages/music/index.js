@@ -38,7 +38,7 @@ const index = (props) => {
             {
                 props.pics.map(pic => {
                     return (
-                        <Wrapper>
+                        <Wrapper key={pic.node.id} >
                         <Painting 
                             image={pic.node.image.url} 
                             width={264}    
