@@ -4,6 +4,7 @@ import styles from '../styles/Home.module.css'
 import { gql, GraphQLClient } from 'graphql-request'
 import ResponsiveNavbar from '../components/ResponsiveNavbar'
 import styled from 'styled-components'
+import HomeNavbar from '../components/HomeNavbar'
 
 
 const Container = styled.div`
@@ -61,7 +62,11 @@ export default function Home(props) {
       <div className={styles.bgWrap}>
             <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
       </div>
-      <ResponsiveNavbar />
+      {/*
+        <ResponsiveNavbar />
+      */}
+      
+      <HomeNavbar />
 
       <About>
         Welcome, Enjoy the many works and vehicles of creation that are the foundations that make Simón.
