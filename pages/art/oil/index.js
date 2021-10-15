@@ -55,7 +55,7 @@ const index = (props) => {
                     {
                         props.paintings.map(painting => {
                             return (
-                                <Link href={'/oil/[id]'} as={`/oil/${painting.id}`} >
+                               
                                 <Wrapper key={painting.id} >
                                     <Painting
                                         image={painting.image.url}
@@ -68,7 +68,7 @@ const index = (props) => {
                                         type={painting.type}
                                     />
                                 </Wrapper>
-                               </Link>
+                            
                             )
                         })
 
