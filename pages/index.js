@@ -19,7 +19,7 @@ const About = styled.div`
     display:flex;
     color: white;
     width: 50%;
-    height: 250px;
+    height: 200px;
     justify-content: center;
     align-items: center;
     margin-top:5%;
@@ -27,7 +27,9 @@ const About = styled.div`
     background: rgba(0, 0, 0, 0.26);
     backdrop-filter: blur(4px);
     font-family: 'Futura-Light';
-    font-size: 30px;  
+    font-size: 22px;  
+    border-radius: 15px;
+    padding: 15px;
 `;
 
 

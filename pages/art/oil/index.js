@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 
 const Container = styled.div`
@@ -39,32 +40,37 @@ const PaintingContainer = styled.div`
 const index = (props) => {
     return (
         <Container>
+            <Head>
+                <title>Oil</title>
+                <meta name="description" content="Simon Safos, A creative from New York City" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
             </div>
             <ArtNavbar />
             <PaintingContainer>
-            <Paintings>
-            {
-                props.paintings.map(painting => {
-                    return (
-                        <Wrapper key={painting.id} >
-                        <Painting 
-                            image={painting.image.url} 
-                            width={264}    
-                            height={304} 
-                            title={painting.title}
-                            year={2021}
-                            dimensions={painting.dimensions}
-                            key = {painting.id}
-                            type = {painting.type}
-                        />
-                    </Wrapper>
-                    )
-                })
-                
-            }
-            </Paintings>
+                <Paintings>
+                    {
+                        props.paintings.map(painting => {
+                            return (
+                                <Wrapper key={painting.id} >
+                                    <Painting
+                                        image={painting.image.url}
+                                        width={264}
+                                        height={304}
+                                        title={painting.title}
+                                        year={2021}
+                                        dimensions={painting.dimensions}
+                                        key={painting.id}
+                                        type={painting.type}
+                                    />
+                                </Wrapper>
+                            )
+                        })
+
+                    }
+                </Paintings>
             </PaintingContainer>
         </Container>
     )
@@ -114,9 +120,9 @@ export async function getStaticProps(context) {
 
     return {
         props: {
-            paintings, 
+            paintings,
             backgroundURL
-            
+
         }, // will be passed to the page component as props
     }
 }

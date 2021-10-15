@@ -40,6 +40,11 @@ let white = "#FFFFF"
 const index = (props) => {
     return (
         <Container>
+            <Head>
+                <title>Multimedia</title>
+                <meta name="description" content="Simon Safos, A creative from New York City" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>

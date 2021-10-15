@@ -39,6 +39,11 @@ const PaintingContainer = styled.div`
 const index = (props) => {
     return (
         <Container>
+            <Head>
+                <title>Charcoal</title>
+                <meta name="description" content="Simon Safos, A creative from New York City" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
             </div>
