@@ -3,6 +3,7 @@ import Image from 'next/image'
 import {bgWrap, bgText} from '../../styles/Home.module.css'
 import styled from 'styled-components'
 import ResponsiveNavbar from '../../components/ResponsiveNavbar'
+import HomeNavbar from '../../components/HomeNavbar'
 import { gql, GraphQLClient } from 'graphql-request'
 
 
@@ -41,7 +42,7 @@ const index = (props) => {
             <div className={bgWrap}>
                    <Image src={props.link} alt="About" layout="fill" objectFit="cover" quality = {100}/>           
             </div>
-            <ResponsiveNavbar />
+            <HomeNavbar />
             <About>
                 Simón Safos is a cross-disciplinary creative out of Queens, New York whose work primarily consists of fine art, illustration, photography and music. From performances at Carnegie Hall to gallery exhibitions with various curators throughout New York, Simón has had the privilege of expressing himself through these different expressive disciplines. He attended the Frank Sinatra School of the Arts where he studied as a vocal major refining his craft and love of music, to then study as an illustrator at the Fashion Institute of Technology in Manhattan while simoultaeneously attending The Art Students League of New York, further strengthening his artistic endeavors.
             </About> 
