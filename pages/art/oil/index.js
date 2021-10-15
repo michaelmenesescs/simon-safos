@@ -6,6 +6,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import Link from 'next/link'
 
 
 const Container = styled.div`
@@ -54,6 +55,7 @@ const index = (props) => {
                     {
                         props.paintings.map(painting => {
                             return (
+                                <Link href={'/oil/[id]'} as={`/oil/${painting.id}`} >
                                 <Wrapper key={painting.id} >
                                     <Painting
                                         image={painting.image.url}
@@ -66,6 +68,7 @@ const index = (props) => {
                                         type={painting.type}
                                     />
                                 </Wrapper>
+                               </Link>
                             )
                         })
 

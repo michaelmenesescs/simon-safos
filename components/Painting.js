@@ -37,7 +37,7 @@ const Subtext = styled.div`
 
 const Painting = ({title, type, year, dimensions, image, width, height, backgroundcolor, text}) => {
     return (
-       <Container bgcolor={backgroundcolor} >
+       <Container bgcolor={backgroundcolor}>
            <PaintingImage src={image} width={width} height={height} loading = "eager" quality ={100} objectFit="cover"/>
            <Subtext>
             <Description text ={text} >
@@ -48,7 +48,9 @@ const Painting = ({title, type, year, dimensions, image, width, height, backgrou
                 </Description>
            </Subtext>
        </Container>
-    )
+    
+        
+)
 }
 
 export default Painting

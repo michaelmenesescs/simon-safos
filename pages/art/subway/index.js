@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 
 const Container = styled.div`
@@ -39,6 +40,11 @@ const PaintingContainer = styled.div`
 const index = (props) => {
     return (
         <Container>
+            <Head>
+                <title>Subway</title>
+                <meta name="description" content="Simon Safos, A creative from New York City" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>

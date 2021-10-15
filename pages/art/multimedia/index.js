@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 
 const Container = styled.div`
