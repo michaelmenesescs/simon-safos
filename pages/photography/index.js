@@ -6,6 +6,7 @@ import Image from 'next/image'
 import {bgWrap, bgText} from '../../styles/Home.module.css'
 import ResponsiveNavbar from '../../components/ResponsiveNavbar'
 import {gql, GraphQLClient} from 'graphql-request'
+import Head from 'next/head'
 
 
 
@@ -15,6 +16,13 @@ const Container = styled.div`
   color: white;
 `;
 
+
+const StyledLink = styled(Link)`
+    &:hover {
+        color: black;
+    }
+
+`
 const Links = styled.div`
     display: flex;
     flex-direction: column;
@@ -23,20 +31,27 @@ const Links = styled.div`
     margin-left: 5%;
     margin-top: 10%;
     font-size: 20pt; 
+    font-weight: 100;
+
 `;
 
 const index = (props) => {
     return (
         <Container>
+          <Head>
+            <title>Photography</title>
+            <meta name="description" content="Simon Safos, A creative from New York City" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
             <div className = {bgWrap}>
                 <Image src={props.link} alt="Photography Landing" layout="fill" objectFit="cover" quality = {100}/>
             </div>
             <NameNavbar color={'#FFFFF'} /> 
             <Links>
-                <Link href = {"/photography/street"}>Street</Link>
-                <Link href = {"/photography/nature"}>Nature</Link>
-                <Link href = {"/photography/people"}>People</Link>
-                <Link href = {"/photography/process"}>Process</Link>
+                <StyledLink href = {"/photography/street"}>Street</StyledLink>
+                <StyledLink href = {"/photography/nature"}>Nature</StyledLink>
+                <StyledLink href = {"/photography/people"}>People</StyledLink>
+                <StyledLink href = {"/photography/process"}>Process</StyledLink>
             </Links>
         </Container>
     )

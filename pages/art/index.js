@@ -24,6 +24,13 @@ const Container = styled.div`
   color: #8D8D8D;
 `;
 
+const StyledLink = styled(Link)`
+  :hover {
+        color: #8D8D8D;
+    }
+
+`
+
 
 const index = (props) => {
   return (
@@ -33,21 +40,21 @@ const index = (props) => {
       </div>
       <NameNavbar color={'#8D8D8D'} />
       <SubPages>
-        <Link href={"/art/oil"}>
+        <StyledLink href={"/art/oil"}>
           oil
-        </Link>
-        <Link href={"/art/digital"}>
+        </StyledLink>
+        <StyledLink href={"/art/digital"}>
           digital
-        </Link>
-        <Link href={"/art/charcoal"}>
+        </StyledLink>
+        <StyledLink href={"/art/charcoal"}>
           charcoal
-        </Link>
-        <Link href={"/art/subway-series"}>
+        </StyledLink>
+        <StyledLink href={"/art/subway-series"}>
           subway series
-        </Link>
-        <Link href={"/art/multimedia"}>
+        </StyledLink>
+        <StyledLink href={"/art/multimedia"}>
           mixmedia figure
-        </Link>
+        </StyledLink>
       </SubPages>
     </Container>
   )

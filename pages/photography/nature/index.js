@@ -3,6 +3,7 @@ import PhotoNavbar from '../../../components/PhotoNavbar'
 import Image from 'next/image'
 import styled from 'styled-components'
 import { gql, GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 
 const colors = {
@@ -100,6 +101,11 @@ const GreenToBlue = styled.div`
 const index = (props) => {
     return (
         <div>
+            <Head>
+                <title>Nature</title>
+                <meta name="description" content="People Page" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <PhotoNavbar color={colors.gray} />
             <Photos>
                 <GraytoOrange>

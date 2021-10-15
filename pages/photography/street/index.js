@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link"
 import styled from "styled-components";
 import { Navbar, Nav } from "react-bootstrap/Navbar";
+import Head from "next/head";
 import { gql, GraphQLClient, GraphQLCLient } from 'graphql-request'
 
 const colors = {
@@ -99,6 +100,11 @@ const index = (props) => {
 
   return (
     <Photos>
+           <Head>
+                <title>Street</title>
+                <meta name="description" content="People Page" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
       <PhotoNavbar color={colors.green} />
       <Green>
         {/* Green Section */}

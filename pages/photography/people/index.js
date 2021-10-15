@@ -2,6 +2,8 @@ import React from 'react'
 import PhotoNavbar from '../../../components/PhotoNavbar'
 import styled from 'styled-components'
 import Image from 'next/image'
+import { gql, GraphQLClient } from 'graphql-request'
+import Head from 'next/head'
 
 
 const colors = {
@@ -14,8 +16,6 @@ const colors = {
     darkyellow: '#3B3830',
     blue: '2F3D45'
 }
-
-const photoPath = `/image/photography/people`
 
 const ImageWrapper = styled.div`
     display:flex;
@@ -87,211 +87,794 @@ const YellowToBlue = styled.div`
 `
 
 
-const index = () => {
+const index = (props) => {
     return (
         <div>
+            <Head>
+                <title>People</title>
+                <meta name="description" content="People Page" />
+                <link rel="icon" href="/favicon.ico" />
+            </Head>
             <PhotoNavbar color={colors.purple} />
-            <Photos> 
-            <PurpletoOrange>
-            <RowBreak>
-            <ImageWrapper>
-                <StyledImage src ={`${photoPath}/purple1.jpg`} width="699px" height="942px" quality={100}  layout = "intrinsic" loading="eager" />
-            </ImageWrapper>
-                <ColumnBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/purple2.jpg`} width="300px" height="453px" quality={100}  layout = "intrinsic" loading="eager" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/purple3.jpg`} width="300px" height="453px" quality={100}  layout = "intrinsic" loading="eager" />
-                    </ImageWrapper>
-                </ColumnBreak>
-                <ColumnBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/purple4.jpg`} width="300px" height="453px" quality={100}  layout = "intrinsic" loading="eager" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/purple5.jpg`} width="300px" height="453px" quality={100}  layout = "intrinsic" loading="eager"/>
-                    </ImageWrapper>
-                </ColumnBreak>
-            </RowBreak>
-            <ImageWrapper>
-                <StyledImage src ={`${photoPath}/purple6.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" loading="eager" />
-            </ImageWrapper>
-            <ImageWrapper>
-                <StyledImage src ={`${photoPath}/purple7.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" loading="eager" />
-            </ImageWrapper>
-            <ImageWrapper>
-                <StyledImage src ={`${photoPath}/purple8.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" loading="eager" />
-            </ImageWrapper>
-            <ImageWrapper>
-                <StyledImage src ={`${photoPath}/purple9.jpg`} width="531px" height="371px" quality={100}  layout = "intrinsic" loading="eager" />
-            </ImageWrapper>
-            <RowBreak>
-
-            <ColumnBreak>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/purple10.jpg`} width="522px" height="355px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/purple11.jpg`} width="523px" height="824px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-            </ColumnBreak>
-            </RowBreak>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/purple12.jpg`} width="802px" height="1204px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-            </PurpletoOrange>
-            <OrangeToGray>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/orange1.jpg`} width="802px" height="1219px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <RowBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/orange2.jpg`} width="249px" height="375px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/orange3.jpg`} width="249px" height="375px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                </RowBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/orange4.jpg`} width="523px" height="818px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-            </OrangeToGray>
-            <GrayToGreen>
-                   <ColumnBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/gray1.jpg`} width="523px" height="818px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+            <Photos>
+                <PurpletoOrange>
                     <RowBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray2.jpg`} width="246px" height="373px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray3.jpg`} width="246px" height="373px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                    </RowBreak>
-                   </ColumnBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray4.jpg`} width="802px" height="1221px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray5.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray6.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray7.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray8.jpg`} width="1350px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray9jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray10.jpg`} width="525px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray11.jpg`} width="525px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray12.jpg`} width="525px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <RowBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray12.jpg`} width="795px" height="371px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
+                        {
+                            props.PurpleOne.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
                         <ColumnBreak>
-                            <RowBreak>
-                                <ImageWrapper>
-                                    <StyledImage src ={`${photoPath}/gray13.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                                </ImageWrapper>
-                                <ImageWrapper>
-                                    <StyledImage src ={`${photoPath}/gray14.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                                </ImageWrapper>
-                            </RowBreak>
-                                <ImageWrapper>
-                                    <StyledImage src ={`${photoPath}/gray15.jpg`} width="530px" height="824px" quality={100}  layout = "intrinsic" />
-                                </ImageWrapper>
+                            {
+                                props.PurpleTwo.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
                         </ColumnBreak>
-                        </RowBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray16.jpg`} width="431px" height="622px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray17.jpg`} width="431px" height="622px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/gray18.jpg`} width="431px" height="622px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-            </GrayToGreen>
-            <GreenToYellow>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/green1.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/green2.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/green3.jpg`} width="247px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/green4.jpg`} width="533px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                    <StyledImage src ={`${photoPath}/green5.jpg`} width="1351px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <RowBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green6.jpg`} width="663px" height="1001px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green7.jpg`} width="663px" height="1001px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                </RowBreak>
-                <ColumnBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green8.jpg`} width="663px" height="440px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green9.jpg`} width="663px" height="440px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                </ColumnBreak>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green10.jpg`} width="663px" height="906px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/green11.jpg`} width="1351px" height="1989px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                        <ColumnBreak>
+                            {
+                                props.PurpleThree.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
+                        </ColumnBreak>
+                    </RowBreak>
+                    {
+                        props.PurpleFour.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                    <RowBreak>
+                        <ColumnBreak>
+                            {
+                                props.PurpleFive.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
+                        </ColumnBreak>
+                    </RowBreak>
+                    {
+                        props.PurpleSix.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                </PurpletoOrange>
+                <OrangeToGray>
+                    {
+                        props.OrangeOne.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                    <RowBreak>
+                        {
+                            props.OrangeTwo.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
 
-
-            </GreenToYellow>
-            <YellowToBlue>
-                <RowBreak>
+                    </RowBreak>
+                    {
+                        props.OrangeThree.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                </OrangeToGray>
+                <GrayToGreen>
                     <ColumnBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blue1.jpg`} width="661px" height="510px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blue2.jpg`} width="661px" height="510px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
+                        {
+                            props.GrayOne.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
+                        <RowBreak>
+                            {
+                                props.GrayTwo.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
+
+                        </RowBreak>
                     </ColumnBreak>
-                </RowBreak>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blue3.jpg`} width="665px" height="1046px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blue4.jpg`} width="665px" height="1046px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-                        <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blue5.jpg`} width="665px" height="1046px" quality={100}  layout = "intrinsic" />
-                        </ImageWrapper>
-            </YellowToBlue>
+                    {
+                        props.GrayThree.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                    <RowBreak>
+                        {
+                            props.GrayFour.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
+                    </RowBreak>
+                    <ColumnBreak>
+                        <RowBreak>
+                            {
+                                props.GrayFive.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
+                        </RowBreak>
+                        {
+                            props.GraySix.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
+                    </ColumnBreak>
+                </GrayToGreen>
+                <GreenToYellow>
+                    {
+                        props.GreenOne.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                    <RowBreak>
+                        {
+                            props.GreenTwo.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
+                    </RowBreak>
+                    <ColumnBreak>
+                        {
+                            props.GreenThree.pictures.map(pic => {
+                                return (
+                                    <ImageWrapper key={pic.id}>
+                                        <StyledImage
+                                            src={pic.image.url}
+                                            width={pic.width}
+                                            height={pic.height}
+                                            quality={100}
+                                            layout="intrinsic"
+                                        />
+                                    </ImageWrapper>
+                                )
+                            })
+                        }
+                    </ColumnBreak>
+                    {
+                        props.GreenFour.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+
+
+                </GreenToYellow>
+                <YellowToBlue>
+                    <RowBreak>
+                        <ColumnBreak>
+                            {
+                                props.BlueOne.pictures.map(pic => {
+                                    return (
+                                        <ImageWrapper key={pic.id}>
+                                            <StyledImage
+                                                src={pic.image.url}
+                                                width={pic.width}
+                                                height={pic.height}
+                                                quality={100}
+                                                layout="intrinsic"
+                                            />
+                                        </ImageWrapper>
+                                    )
+                                })
+                            }
+                        </ColumnBreak>
+                    </RowBreak>
+                    {
+                        props.BlueTwo.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
+                </YellowToBlue>
             </Photos>
-            
-        </div>
+        </div >
     )
 }
 
 export default index
+
+
+
+export async function getStaticProps(context) {
+
+    let url = "https://api-ca-central-1.graphcms.com/v2/ckui3azur0w7s01xqhu545bmx/master"
+    let token = process.env.GRAPH_CMS_TOKEN
+
+
+    const graphQLCLient = new GraphQLClient(url, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+
+    const one = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "one"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+ 
+    `
+    const two = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "PurpleTwo"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+ 
+    `
+    const three = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "three"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+ 
+    `
+    const four = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "four "}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const five = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "five"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const six = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "purple", section: "six"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const orangeOne = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "orange", section: "one"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const orangeTwo = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "orange", section: "two"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const orangeThree = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "orange", section: "three"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const grayOne = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "one"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const grayTwo = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "two"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const grayThree = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "three"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const grayFour = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "four"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const grayFive = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "five"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      `
+    const graySix = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "gray", section: "six"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const greenOne = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "green", section: "one"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const greenTwo = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "green", section: "two"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const greenThree = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "green", section: "three"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const greenFour = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "green", section: "four"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const blueOne = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "blue", section: "one"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+    const blueTwo = gql`
+    query purples {
+        pictures(
+          where: {fileName_contains: "blue", section: "two"}
+          orderBy: fileName_ASC
+        ) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+    `
+
+
+    const PurpleOne = await graphQLCLient.request(one)
+    const PurpleTwo = await graphQLCLient.request(two)
+    const PurpleThree = await graphQLCLient.request(three)
+    const PurpleFour = await graphQLCLient.request(four)
+    const PurpleFive = await graphQLCLient.request(five)
+    const PurpleSix = await graphQLCLient.request(six)
+
+    const OrangeOne = await graphQLCLient.request(orangeOne)
+    const OrangeTwo = await graphQLCLient.request(orangeTwo)
+    const OrangeThree = await graphQLCLient.request(orangeThree)
+
+    const GrayOne = await graphQLCLient.request(grayOne)
+    const GrayTwo = await graphQLCLient.request(grayTwo)
+    const GrayThree = await graphQLCLient.request(grayThree)
+    const GrayFour = await graphQLCLient.request(grayFour)
+    const GrayFive = await graphQLCLient.request(grayFive)
+    const GraySix = await graphQLCLient.request(graySix)
+
+    const GreenOne = await graphQLCLient.request(greenOne)
+    const GreenTwo = await graphQLCLient.request(greenTwo)
+    const GreenThree = await graphQLCLient.request(greenThree)
+    const GreenFour = await graphQLCLient.request(greenFour)
+
+
+
+    const BlueOne = await graphQLCLient.request(blueOne)
+    const BlueTwo = await graphQLCLient.request(blueTwo)
+
+
+
+
+
+    return {
+        props: {
+            PurpleOne,
+            PurpleTwo,
+            PurpleThree,
+            PurpleFour,
+            PurpleFive,
+            PurpleSix,
+            OrangeOne,
+            OrangeTwo,
+            OrangeThree,
+            GrayOne,
+            GrayTwo,
+            GrayThree,
+            GrayFour,
+            GrayFive,
+            GraySix,
+            GreenOne,
+            GreenTwo,
+            GreenThree,
+            GreenFour,
+            BlueOne,
+            BlueTwo
+
+        }, // will be passed to the page component as props
+    }
+}
+

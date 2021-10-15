@@ -7,10 +7,12 @@ import styled from 'styled-components'
 import HomeNavbar from '../components/HomeNavbar'
 
 
+
 const Container = styled.div`
   display:flex;
   flex-direction: column;
   min-width: 100vw;
+  justify-content: space-between;
 `;
 
 const About = styled.div`
@@ -23,9 +25,9 @@ const About = styled.div`
     margin-top:5%;
     padding: 25px;
     background: rgba(0, 0, 0, 0.26);
-    backdrop-filter: blur(6px);
+    backdrop-filter: blur(4px);
     font-family: 'Futura-Light';
-    font-size: 20px;  
+    font-size: 30px;  
 `;
 
 
@@ -34,14 +36,27 @@ const Contact = styled.div`
   flex-direction: column;
   justify-content: flex-end;
   padding: 20px;
+  font-family: 'Futura-Light';
+  font-size: 30px;  
   color: white;
+
 `
 
 const Links = styled.div`
   display:flex;
   flex-direction: row;
   padding: 20px;
+  font-family: 'Futura-Light';
+
+  align-items: center;
   
+`
+
+const Info = styled.div`
+  display:flex;
+  margin-top: 300px;
+  flex-direction: column;
+
 `
 
 const propTypes = {
@@ -62,29 +77,24 @@ export default function Home(props) {
       <div className={styles.bgWrap}>
             <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
       </div>
-      {/*
-        <ResponsiveNavbar />
-      */}
       
       <HomeNavbar />
-
       <About>
         Welcome, Enjoy the many works and vehicles of creation that are the foundations that make Simón.
       </About>
-
-      <Contact>
-          contact:inquiries@studiosafos.com
-
-
-      </Contact>
-      <Links>
-        <a href = {"https://www.instagram.com/simonsafos/"} >
-          <Image src = {"/IG.png"} alt = "Instagram" width="30px" height="30px" quality={100}/>
-        </a>
-        <a href = {"https://www.instagram.com/simonsafos/"} >
-          <Image src = {"/behance.png"} alt = "Behance" width="30px" height="30px" quality={100}/>
-        </a>
-      </Links>
+      <Info>
+        <Contact>
+            contact: simonsafos@gmail.com
+        </Contact>
+        <Links>
+          <a href = {"https://www.instagram.com/simonsafos/"} >
+            <Image src = {"/IG.png"} alt = "Instagram" width="50px" height="50px" quality={100}/>
+          </a>
+          <a href = {"https://www.instagram.com/simonsafos/"} >
+            <Image src = {"/behance.png"} alt = "Behance" width="50px" height="50px" quality={100}/>
+          </a>
+        </Links>
+      </Info>
 
 
     </Container>
