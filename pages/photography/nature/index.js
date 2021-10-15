@@ -2,6 +2,7 @@ import React from 'react'
 import PhotoNavbar from '../../../components/PhotoNavbar'
 import Image from 'next/image'
 import styled from 'styled-components'
+import { gql, GraphQLClient } from 'graphql-request'
 
 
 const colors = {
@@ -16,8 +17,6 @@ const colors = {
     darkgreen: '#5B605B',
     lightblue: '#184157'
 }
-
-const photoPath = `/image/photography/nature`
 
 const ImageWrapper = styled.div`
     display:flex;
@@ -34,6 +33,7 @@ const StyledImage = styled(Image)`
 const Photos = styled.div`
     display:flex;
     flex-direction: column;
+    
 `;
 
 const GraytoOrange = styled.div`
@@ -97,371 +97,270 @@ const GreenToBlue = styled.div`
 
 
 
-const index = () => {
+const index = (props) => {
     return (
         <div>
-            <PhotoNavbar color = {colors.gray}/>
+            <PhotoNavbar color={colors.gray} />
             <Photos>
                 <GraytoOrange>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw1.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw2.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw3.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw4.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw5.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw6.jpg`} width="525px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw7.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw8.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw9.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw10.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw11.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw12.jpg`} width="250px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw13.jpg`} width="517px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw14.jpg`} width="517px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw15.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/B&W/bw16.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+                        props.GrayToOrange.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </GraytoOrange>
                 <OrangetoPurple>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun1.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun2.jpg`} width="793px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun3.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun4.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun5.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun6.jpg`} width="245px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun7.jpg`} width="524px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun8.png`} width="1330px" height="371px" quality={100}  layout = "fixed" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun9.jpg`} width="523px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun10.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun11.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun12.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun13.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun14.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun15.jpg`} width="243px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun16.jpg`} width="512px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun17.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun18.jpg`} width="796px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/sun/sun19.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+                        props.OrangeToPurple.pictures.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </OrangetoPurple>
                 <PurpleToRed>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night1.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night2.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night3.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night4.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night5.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night7.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night8.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night9.jpg`} width="241px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night10.jpg`} width="652px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night11.jpg`} width="650px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night12.jpg`} width="1327px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night13.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night14.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night15.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night16.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night17.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night18.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night19.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night20.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+
+                        props.PurpleToRed.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </PurpleToRed>
                 <RedToBlue>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night21.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night22.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night23.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night24.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night25.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night26.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night27.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night28.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night29.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night30.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night31.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/night32.jpg`} width="244pxx" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+                        props.RedToBlue.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </RedToBlue>
                 <BlueToYellow>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day1.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day2.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day3.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day4.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day5.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day6.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day7.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day8.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day9.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day10.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day11.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day12.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day13.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day14.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day15.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day16.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day17.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day18.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day19.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day20.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day21.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day22.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day23.jpg`} width="795px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day24.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
-                <ImageWrapper>
-                        <StyledImage src ={`${photoPath}/daytime/day25.jpg`} width="1326px" height="371px" quality={100}  layout = "intrinsic" />
-                </ImageWrapper>
+                    {
+                        props.BlueToYellow.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </BlueToYellow>
                 <YellowToGreen>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green1.jpg`} width="517px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green2.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green3.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green4.jpg`} width="517px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green5.jpg`} width="655px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green6.jpg`} width="744px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green7.jpg`} width="655px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green8.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green9.jpg`} width="790px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green10.jpg`} width="240px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green11.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/greens/green12.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+                        props.YellowToGreen.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </YellowToGreen>
                 <GreenToBlue>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue1.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue2.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue3.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue4.jpg`} width="522px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue5.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue6.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue7.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue8.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue9.jpg`} width="244px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue10.jpg`} width="655px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
-                    <ImageWrapper>
-                            <StyledImage src ={`${photoPath}/blues/blue11.jpg`} width="655px" height="371px" quality={100}  layout = "intrinsic" />
-                    </ImageWrapper>
+                    {
+                        props.GreenToBlue.map(pic => {
+                            return (
+                                <ImageWrapper key={pic.id}>
+                                    <StyledImage
+                                        src={pic.image.url}
+                                        width={pic.width}
+                                        height={pic.height}
+                                        quality={100}
+                                        layout="intrinsic"
+                                    />
+                                </ImageWrapper>
+                            )
+                        })
+                    }
                 </GreenToBlue>
-                
             </Photos>
         </div>
     )
 }
 
 export default index
+
+
+export async function getStaticProps(context) {
+
+    let url = "https://api-ca-central-1.graphcms.com/v2/ckui3azur0w7s01xqhu545bmx/master"
+    let token = process.env.GRAPH_CMS_TOKEN
+
+
+    const graphQLCLient = new GraphQLClient(url, {
+        headers: {
+            "Authorization": `Bearer ${token}`
+        }
+    })
+
+    const bw = gql`
+        query bw {
+                pictures(where: {section: "bw"}, orderBy: fileName_ASC){
+                id
+                fileName
+                width
+                height
+                image {
+                    url
+                }
+                }
+            }   
+     `
+    const sun = gql`
+        query sun  {
+                pictures(where: {section: "sun"}, orderBy: fileName_ASC){
+                id
+                fileName
+                width
+                height
+                image {
+                    url
+                }
+                }
+            }   
+     `
+    const night = gql`
+        query sun  {
+                pictures(where: {section: "night"}, orderBy: fileName_ASC){
+                id
+                fileName
+                width
+                height
+                image {
+                    url
+                }
+                }
+            }   
+     `
+    const daytime = gql`
+        query day {
+            pictures(where: {fileName_contains: "day"}) {
+            id
+            fileName
+            width
+            height
+            image {
+                url
+            }
+            }
+        }
+     `
+    const greens = gql`
+        query greens {
+            pictures(
+            where: {fileName_contains: "green", page: "nature"}
+            orderBy: fileName_ASC
+            ) {
+            id
+            fileName
+            width
+            height
+            image {
+                url
+            }
+            }
+        }
+     `
+    const blues = gql`
+        query blues  {
+            pictures(
+            where: {fileName_contains: "blues", page: "nature"}
+            orderBy: fileName_ASC
+            ) {
+            id
+            fileName
+            width
+            height
+            image {
+                url
+            }
+            }
+        }
+     `
+
+
+
+
+
+    const GrayToOrange = await graphQLCLient.request(bw)
+    const OrangeToPurple = await graphQLCLient.request(sun)
+    const Night = await graphQLCLient.request(night)
+    const Daytime = await graphQLCLient.request(daytime)
+    const Greens = await graphQLCLient.request(greens)
+    const Blues = await graphQLCLient.request(blues)
+
+
+
+
+    const PurpleToRed = Night.pictures.splice(0, 18)
+    const RedToBlue = Night.pictures.splice(18)
+    const BlueToYellow = Daytime.pictures
+    const YellowToGreen = Greens.pictures
+    const GreenToBlue = Blues.pictures
+
+
+
+
+
+
+    return {
+        props: {
+            GrayToOrange,
+            OrangeToPurple,
+            PurpleToRed,
+            RedToBlue,
+            BlueToYellow,
+            YellowToGreen,
+            GreenToBlue
+        }, // will be passed to the page component as props
+    }
+}

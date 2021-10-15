@@ -3,8 +3,8 @@ import PhotoNavbar from "../../../components/PhotoNavbar";
 import Image from "next/image";
 import Link from "next/link"
 import styled from "styled-components";
-import {Navbar, Nav} from "react-bootstrap/Navbar";
-import {gql, GraphQLClient, GraphQLCLient} from 'graphql-request'
+import { Navbar, Nav } from "react-bootstrap/Navbar";
+import { gql, GraphQLClient, GraphQLCLient } from 'graphql-request'
 
 const colors = {
   green: "#3F452D",
@@ -26,9 +26,7 @@ const Wrapper = styled.div`
     padding: 5px;
 
 `
-const NavWrapper = styled.div`
-    background-color: ${colors.green};
-`
+
 const Photos = styled.div`
   display: flex;
   flex-direction: column;
@@ -60,7 +58,7 @@ const BlueToBronze = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-evenly;
-  background: linear-gradient(#393326);
+  background: linear-gradient(#393326, #2a373b);
 `;
 const BronzeToGray = styled.div`
   display: flex;
@@ -82,105 +80,50 @@ const ColumnBreak = styled.div`
   flex-direction: column;
 `;
 
-const photoPath = `/image/photography/streetphotography/`;
+const index = (props) => {
 
-const index = () => {
+  const GreenToBlueBottom = props.GreenToBlue.pictures.slice(3)
+  const Blue1To4 = props.Blue.pictures.slice(0, 4)
+  const Blue5To6 = props.Blue.pictures.slice(4, 6)
+  const Blue6ToEnd = props.Blue.pictures.slice(6)
+
+  const BlueToBronze1To2 = props.BlueToBronze.pictures.slice(0, 2)
+  const BlueToBronze2ToEnd = props.BlueToBronze.pictures.slice(0, 2)
+
+  const GrayToOrange1To9 = props.GrayToOrange.pictures.slice(0, 10)
+  const GrayToOrangeEnd = props.GrayToOrange.pictures.slice(11)
+
+  console.log(GrayToOrange1To9)
+
+
+
   return (
     <Photos>
-      {/*
-
-      
       <PhotoNavbar color={colors.green} />
-    
       <Green>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green1.jpg`}
-            width="317px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green2.jpg`}
-            width="665px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green3.jpg`}
-            width="317px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green4.jpg`}
-            width="317px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green5.jpg`}
-            width="317px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green6.jpg`}
-            width="665px"
-            height="446px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green7.jpg`}
-            width="437px"
-            height="612px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green8.jpg`}
-            width="437px"
-            height="612px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}green9.jpg`}
-            width="437px"
-            height="612px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {/* Green Section */}
+        {
+          props.Green.pictures.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
       </Green>
       <GreenToBlue>
         <Wrapper>
           <StyledImage
-            src={`${photoPath}greentoblue1.jpg`}
-            width="898px"
-            height="1239px"
+            src={props.GreenToBlue.pictures[0].image.url}
+            width={props.GreenToBlue.pictures[0].width}
+            height={props.GreenToBlue.pictures[0].height}
             quality={100}
             layout="intrinsic"
           />
@@ -188,470 +131,291 @@ const index = () => {
         <ColumnBreak>
           <Wrapper>
             <StyledImage
-              src={`${photoPath}greentoblue2.jpg`}
-              width="426px"
-              height="589px"
+              src={props.GreenToBlue.pictures[1].image.url}
+              width={props.GreenToBlue.pictures[1].width}
+              height={props.GreenToBlue.pictures[1].height}
               quality={100}
               layout="intrinsic"
             />
           </Wrapper>
           <Wrapper>
             <StyledImage
-              src={`${photoPath}greentoblue3.jpg`}
-              width="426px"
-              height="625px"
+              src={props.GreenToBlue.pictures[2].image.url}
+              width={props.GreenToBlue.pictures[2].width}
+              height={props.GreenToBlue.pictures[2].height}
               quality={100}
               layout="intrinsic"
             />
           </Wrapper>
         </ColumnBreak>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}greentoblue4.jpg`}
-            width="319px"
-            height="496px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}greentoblue5.jpg`}
-            width="319px"
-            height="496px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}greentoblue6.jpg`}
-            width="319px"
-            height="496px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}greentoblue7.jpg`}
-            width="319px"
-            height="496px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <ColumnBreak>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}greentoblue8.jpg`}
-              width="437px"
-              height="622px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}greentoblue9.jpg`}
-              width="437px"
-              height="609px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
-        </ColumnBreak>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}greentoblue10.jpg`}
-            width="887px"
-            height="1257px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          GreenToBlueBottom.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
       </GreenToBlue>
       <Blue>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue1.jpg`}
-            width="437px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue2.jpg`}
-            width="437px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue3.jpg`}
-            width="437px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue4.jpg`}
-            width="886px"
-            height="1249px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          Blue1To4.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
         <ColumnBreak>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}blue5.jpg`}
-              width="437px"
-              height="600px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}blue6.jpg`}
-              width="437px"
-              height="600px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
+          {
+            Blue5To6.map(pic => {
+              return (
+                <Wrapper key={pic.id}>
+                  <StyledImage
+                    src={pic.image.url}
+                    width={pic.width}
+                    height={pic.height}
+                    quality={100}
+                    layout="intrinsic"
+                  />
+                </Wrapper>
+              )
+            })
+          }
         </ColumnBreak>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue7.jpg`}
-            width="311px"
-            height="450px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue8.jpg`}
-            width="308px"
-            height="450px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}blue9.jpg`}
-            width="680px"
-            height="450px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          Blue6ToEnd.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
       </Blue>
       <BlueToBronze>
         <ColumnBreak>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}bluetobronze1.jpg`}
-              width="418px"
-              height="620px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}bluetobronze2.jpg`}
-              width="418px"
-              height="633px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
+          {
+            BlueToBronze1To2.map(pic => {
+              return (
+                <Wrapper key={pic.id}>
+                  <StyledImage
+                    src={pic.image.url}
+                    width={pic.width}
+                    height={pic.height}
+                    quality={100}
+                    layout="intrinsic"
+                  />
+                </Wrapper>
+              )
+            })
+          }
         </ColumnBreak>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bluetobronze3.jpg`}
-            width="905px"
-            height="1278px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bluetobronze4.jpg`}
-            width="319px"
-            height="419px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bluetobronze5.jpg`}
-            width="319px"
-            height="419px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bluetobronze6.jpg`}
-            width="319px"
-            height="419px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bluetobronze7.jpg`}
-            width="319px"
-            height="419px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          BlueToBronze2ToEnd.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
       </BlueToBronze>
       <BronzeToGray>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray1.jpg`}
-            width="318px"
-            height="447px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray2.jpg`}
-            width="662px"
-            height="447px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray3.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray4.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray5.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray6.jpg`}
-            width="687px"
-            height="447px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray7.jpg`}
-            width="313px"
-            height="447px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}bronzetogray8.jpg`}
-            width="313px"
-            height="447px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          props.BronzeToGray.pictures.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
       </BronzeToGray>
       <GrayToOrange>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange1.jpg`}
-            width="446px"
-            height="687px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange2.jpg`}
-            width="446px"
-            height="687px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange3.jpg`}
-            width="964px"
-            height="1349px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange4.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange5.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange6.jpg`}
-            width="436px"
-            height="598px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange7.jpg`}
-            width="597px"
-            height="888px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange8.jpg`}
-            width="436px"
-            height="597px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
-        <Wrapper>
-          <StyledImage
-            src={`${photoPath}graytoorange9.jpg`}
-            width="888px"
-            height="1269px"
-            quality={100}
-            layout="intrinsic"
-          />
-        </Wrapper>
+        {
+          GrayToOrange1To9.map(pic => {
+            return (
+              <Wrapper key={pic.id}>
+                <StyledImage
+                  src={pic.image.url}
+                  width={pic.width}
+                  height={pic.height}
+                  quality={100}
+                  layout="intrinsic"
+                />
+              </Wrapper>
+            )
+          })
+        }
         <ColumnBreak>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}graytoorange10.jpg`}
-              width="436px"
-              height="621px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
-          <Wrapper>
-            <StyledImage
-              src={`${photoPath}graytoorange11.jpg`}
-              width="436px"
-              height="621px"
-              quality={100}
-              layout="intrinsic"
-            />
-          </Wrapper>
+          {
+            GrayToOrangeEnd.map(pic => {
+              return (
+                <Wrapper key={pic.id}>
+                  <StyledImage
+                    src={pic.image.url}
+                    width={pic.width}
+                    height={pic.height}
+                    quality={100}
+                    layout="intrinsic"
+                  />
+                </Wrapper>
+              )
+            })
+          }
         </ColumnBreak>
+
       </GrayToOrange>
-      */}
     </Photos>
   );
 };
 
 export default index;
 
-
 export async function getStaticProps(context) {
 
-    let url = "https://api-ca-central-1.graphcms.com/v2/ckui3azur0w7s01xqhu545bmx/master"
-    let token = process.env.GRAPH_CMS_TOKEN
+  let url = "https://api-ca-central-1.graphcms.com/v2/ckui3azur0w7s01xqhu545bmx/master"
+  let token = process.env.GRAPH_CMS_TOKEN
 
 
-    const graphQLCLient = new GraphQLClient(url, {
-        headers: {
-            "Authorization": `Bearer ${token}`
-        }
-    })
-
-    const query = gql`
-        query MyQuery {
-            paintings(where: {page: "process"}, orderBy: id_ASC) {
-            id
-            title
-            type
-            dimensions
-            year
-            image {
-                url
-                fileName
-            }
-            }
-            asset(where: {id: "ckun50ymg6ngw0c33oao7u32t"}) {
-            url
-            fileName
-            }
-        } 
-      `
-    const data = await graphQLCLient.request(query)
-
-    let paintings = data.paintings
-    let backgroundURL = data.asset.url
-
-
-
-    return {
-        props: {
-            //paintings,
-            //backgroundURL
-
-        }, // will be passed to the page component as props
+  const graphQLCLient = new GraphQLClient(url, {
+    headers: {
+      "Authorization": `Bearer ${token}`
     }
+  })
+
+  const GreenSection = gql`
+    query Green {
+      pictures(where: {section: "green"}){
+        id
+        fileName
+        width
+        height
+        image {
+          url
+        }
+      }
+    } 
+      `
+  const GreenToBlueSection = gql`
+      query GreentoBlue {
+        pictures(where: {section: "greentoblue"}) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      
+      `
+  const BlueSection = gql`
+      query Blue {
+        pictures(where: {section: "blue"}) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      `
+  const BlueToBronzeSection = gql`
+      query Blue {
+        pictures(where: {section: "bluetobronze"}) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      `
+  const BronzeToGraySection = gql`
+      query Blue {
+        pictures(where: {section: "bronzetogray"}) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      `
+
+  const GrayToOrangeSection = gql`
+      query Blue {
+        pictures(where: {section: "graytoorange"}) {
+          id
+          fileName
+          width
+          height
+          image {
+            url
+          }
+        }
+      }
+      `
+
+  const Green = await graphQLCLient.request(GreenSection)
+  const GreenToBlue = await graphQLCLient.request(GreenToBlueSection)
+  const Blue = await graphQLCLient.request(BlueSection)
+  const BlueToBronze = await graphQLCLient.request(BlueToBronzeSection)
+  const BronzeToGray = await graphQLCLient.request(BronzeToGraySection)
+  const GrayToOrange = await graphQLCLient.request(GrayToOrangeSection)
+
+  console.log(BronzeToGray)
+
+  return {
+    props: {
+      Green,
+      GreenToBlue,
+      Blue,
+      BlueToBronze,
+      BronzeToGray,
+      GrayToOrange
+    }, // will be passed to the page component as props
+  }
 }
 
