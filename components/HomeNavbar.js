@@ -42,30 +42,36 @@ const BlockR = styled.div`
     }
 `;
 
-
+const StyledLink = styled.a`
+    display: flex;
+    &:hover {
+        color: #8D8D8D;
+        transition: all .4s ease;
+    }
+`
 
 
 const HomeNavbar = () => {
     return (
         <Nav>
             <BlockL>
-                <Link href={"/"}>
+                <StyledLink href={"/"}>
                     Simón Safos
-                </Link>    
+                </StyledLink>    
             </BlockL>
             <BlockR>
-                <Link href={"/art"}>
+                <StyledLink href={"/art"}>
                     art
-                </Link >
-                <Link href={"/photography"}>
+                </StyledLink >
+                <StyledLink href={"/photography"}>
                     photography
-                </Link >
-                <Link href={"/music"}>
+                </StyledLink>
+                <StyledLink href={"/music"}>
                     music
-                </Link >
-                <Link href={"/about"}>
+                </StyledLink >
+                <StyledLink href={"/about"}>
                     about
-                </Link >
+                </StyledLink >
             </BlockR>
         </Nav>
     )

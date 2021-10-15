@@ -5,6 +5,7 @@ import Link from 'next/link'
 import styled from 'styled-components'
 import { gql, GraphQLClient } from 'graphql-request'
 import NameNavbar from '../../components/NameNavbar'
+import Head from 'next/head'
 
 const SubPages = styled.div`
     display:flex;
@@ -13,7 +14,7 @@ const SubPages = styled.div`
     align-items: flex-start;
     font-family: 'Typographica';
     font-size: 40px;
-    color: '#8D8D8D';
+    color: #8D8D8D;
     margin-left: 10%;
     margin-top: 10%;
 `;
@@ -24,17 +25,23 @@ const Container = styled.div`
   color: #8D8D8D;
 `;
 
-const StyledLink = styled(Link)`
-  :hover {
-        color: #8D8D8D;
-    }
-
+const StyledLink = styled.a`
+   &:hover {
+    color: black;
+    transition: all .4s ease;
+  }
+ 
 `
 
 
 const index = (props) => {
   return (
     <Container>
+      <Head>
+            <title>Art</title>
+            <meta name="description" content="Simon Safos, A creative from New York City" />
+            <link rel="icon" href="/favicon.ico" />
+          </Head>
       <div className={bgWrap}>
         <Image src={props.link} alt="Art Landing" layout="fill" objectFit="cover" quality={100} />
       </div>

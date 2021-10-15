@@ -17,10 +17,11 @@ const Container = styled.div`
 `;
 
 
-const StyledLink = styled(Link)`
+const StyledLink = styled.a`
     &:hover {
-        color: black;
+        color: #8D8D8D;
     }
+    font-size: 25pt;
 
 `
 const Links = styled.div`
