@@ -17,6 +17,7 @@ const SubPages = styled.div`
     color: #8D8D8D;
     margin-left: 10%;
     margin-top: 10%;
+    font-size: 37pt;
 `;
 
 const Container = styled.div`

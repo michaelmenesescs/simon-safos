@@ -6,8 +6,6 @@ import ResponsiveNavbar from '../components/ResponsiveNavbar'
 import styled from 'styled-components'
 import HomeNavbar from '../components/HomeNavbar'
 
-
-
 const Container = styled.div`
   display:flex;
   flex-direction: column;
@@ -18,17 +16,18 @@ const Container = styled.div`
 const About = styled.div`
     display:flex;
     color: white;
-    width: 50%;
-    height: 200px;
+    width: 60%;
+    min-height: 200px;
+    height: 30%;
     justify-content: center;
     align-items: center;
     margin-top:5%;
     padding: 25px;
-    background: rgba(0, 0, 0, 0.26);
-    backdrop-filter: blur(4px);
+    background: rgba(0, 0, 0, 0.17);
+    backdrop-filter: blur(7px);
     font-family: 'Futura-Light';
-    font-size: 22px;  
-    border-radius: 15px;
+    font-size: 30px;  
+    border-radius: 21px;
     padding: 15px;
 `;
 
@@ -47,12 +46,10 @@ const Contact = styled.div`
 const Links = styled.div`
   display:flex;
   flex-direction: row;
-  padding: 20px;
+  padding: 30px;
   font-family: 'Futura-Light';
-
   align-items: center;
-  
-`
+  `
 
 const Info = styled.div`
   display:flex;
@@ -80,7 +77,9 @@ export default function Home(props) {
             <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
       </div>
       
-      <HomeNavbar />
+      <ResponsiveNavbar />
+
+     
       <About>
         Welcome, Enjoy the many works and vehicles of creation that are the foundations that make Simón.
       </About>
@@ -97,7 +96,7 @@ export default function Home(props) {
           </a>
         </Links>
       </Info>
-
+    
 
     </Container>
   )

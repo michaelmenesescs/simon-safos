@@ -62,7 +62,7 @@ const index = (props) => {
                                         width={264}
                                         height={304}
                                         title={painting.title}
-                                        year={2021}
+                                        year={painting.year}
                                         dimensions={painting.dimensions}
                                         key={painting.id}
                                         type={painting.type}
