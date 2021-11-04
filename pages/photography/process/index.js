@@ -33,6 +33,7 @@ const Paintings = styled.div`
     flex: 3 1 auto;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
+    max-width: 1200px;
 `;
 const Wrapper = styled.div`
     padding: 10px;
@@ -41,6 +42,7 @@ const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
     flex: 3;
+    justify-content: center;
 `;
 
 const index = (props) => {

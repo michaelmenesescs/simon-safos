@@ -1,5 +1,5 @@
 import React from 'react'
-import PhotoNavbar from '../../../components/PhotoNavbar'
+import ResponsivePhotoNavbar from '../../../components/ResponsivePhotoNavbar'
 import styled from 'styled-components'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
@@ -44,7 +44,6 @@ const RowBreak = styled.div`
     flex-direction: row;
 `;
 
-
 const PurpletoOrange = styled.div`
     display: flex;
     flex-direction: row;
@@ -85,19 +84,30 @@ const YellowToBlue = styled.div`
     background: linear-gradient(#3B3830, #2F3D45);
     padding: 10px;
 `
+const PhotoWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1348px;
+`;
 
+const Container = styled.div`
+    display:flex;
+    flex-direction: column;
+`;
 
 const index = (props) => {
     return (
-        <div>
+        <Container>
             <Head>
                 <title>People</title>
                 <meta name="description" content="People Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <PhotoNavbar color={colors.purple} />
             <Photos>
                 <PurpletoOrange>
+                <ResponsivePhotoNavbar />
+                  <PhotoWrapper>
                     <RowBreak>
                         {
                             props.PurpleOne.pictures.map(pic => {
@@ -198,8 +208,10 @@ const index = (props) => {
                             )
                         })
                     }
+                </PhotoWrapper>
                 </PurpletoOrange>
                 <OrangeToGray>
+                  <PhotoWrapper>
                     {
                         props.OrangeOne.pictures.map(pic => {
                             return (
@@ -248,8 +260,10 @@ const index = (props) => {
                             )
                         })
                     }
+                </PhotoWrapper>
                 </OrangeToGray>
                 <GrayToGreen>
+                  <PhotoWrapper>
                     <ColumnBreak>
                         {
                             props.GrayOne.pictures.map(pic => {
@@ -351,8 +365,10 @@ const index = (props) => {
                             })
                         }
                     </ColumnBreak>
+                    </PhotoWrapper>
                 </GrayToGreen>
                 <GreenToYellow>
+                  <PhotoWrapper>
                     {
                         props.GreenOne.pictures.map(pic => {
                             return (
@@ -417,10 +433,10 @@ const index = (props) => {
                             )
                         })
                     }
-
-
+                </PhotoWrapper>
                 </GreenToYellow>
                 <YellowToBlue>
+                  <PhotoWrapper>
                     <RowBreak>
                         <ColumnBreak>
                             {
@@ -455,9 +471,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </YellowToBlue>
             </Photos>
-        </div >
+        </Container>
     )
 }
 

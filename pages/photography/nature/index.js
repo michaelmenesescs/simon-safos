@@ -104,11 +104,22 @@ const GreenToBlue = styled.div`
     padding: 10px;
 `
 
+const PhotoWrapper = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    max-width: 1348px;
+`;
 
+
+const Container = styled.div`
+    display: flex;
+    flex-direction: column;
+`
 
 const index = (props) => {
     return (
-        <div>
+        <Container>
             <Head>
                 <title>Nature</title>
                 <meta name="description" content="People Page" />
@@ -119,9 +130,12 @@ const index = (props) => {
             }
             <Photos>
                 <Gray>
-                    <ResponsivePhotoNavbar />
+                    <PhotoWrapper>
+                        <ResponsivePhotoNavbar />
+                    </PhotoWrapper>
                 </Gray>
                 <GraytoOrange>
+                    <PhotoWrapper>
                     {
                         props.GrayToOrange.pictures.map(pic => {
                             return (
@@ -137,8 +151,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </GraytoOrange>
                 <OrangetoPurple>
+                    <PhotoWrapper>
                     {
                         props.OrangeToPurple.pictures.map(pic => {
                             return (
@@ -154,8 +170,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </OrangetoPurple>
                 <PurpleToRed>
+                    <PhotoWrapper>
                     {
 
                         props.PurpleToRed.map(pic => {
@@ -172,8 +190,10 @@ const index = (props) => {
                             )
                         })
                     }
+                   </PhotoWrapper>
                 </PurpleToRed>
                 <RedToBlue>
+                    <PhotoWrapper>
                     {
                         props.RedToBlue.map(pic => {
                             return (
@@ -189,8 +209,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </RedToBlue>
                 <BlueToYellow>
+                    <PhotoWrapper>
                     {
                         props.BlueToYellow.map(pic => {
                             return (
@@ -206,8 +228,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </BlueToYellow>
                 <YellowToGreen>
+                    <PhotoWrapper>
                     {
                         props.YellowToGreen.map(pic => {
                             return (
@@ -223,8 +247,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </YellowToGreen>
                 <GreenToBlue>
+                    <PhotoWrapper>
                     {
                         props.GreenToBlue.map(pic => {
                             return (
@@ -240,9 +266,10 @@ const index = (props) => {
                             )
                         })
                     }
+                    </PhotoWrapper>
                 </GreenToBlue>
             </Photos>
-        </div>
+        </Container>
     )
 }
 
