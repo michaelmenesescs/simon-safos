@@ -4,7 +4,7 @@ import Image from 'next/image'
 import styled from 'styled-components'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
-
+import ResponsivePhotoNavbar from '../../../components/ResponsivePhotoNavbar'
 
 const colors = {
     gray: '#393939',
@@ -34,8 +34,16 @@ const StyledImage = styled(Image)`
 const Photos = styled.div`
     display:flex;
     flex-direction: column;
-    
 `;
+
+const Gray = styled.div`
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    background: #393939;
+    padding: 10px;
+`
 
 const GraytoOrange = styled.div`
     display: flex;
@@ -106,8 +114,13 @@ const index = (props) => {
                 <meta name="description" content="People Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            <PhotoNavbar color={colors.gray} />
+            {
+               // <PhotoNavbar color={colors.gray} />
+            }
             <Photos>
+                <Gray>
+                    <ResponsivePhotoNavbar />
+                </Gray>
                 <GraytoOrange>
                     {
                         props.GrayToOrange.pictures.map(pic => {

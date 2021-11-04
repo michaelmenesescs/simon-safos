@@ -44,9 +44,14 @@ const BlockR = styled.div`
 
 const StyledLink = styled.a`
     display: flex;
+    text-decoration: none;
+    color: white;
     &:hover {
         color: #8D8D8D;
         transition: all .4s ease;
+        position: relative; 
+        top: -5px;
+        left: 20px;
     }
 `
 

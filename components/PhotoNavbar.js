@@ -49,14 +49,6 @@ const BlockR = styled.div`
     }
 `;
 
-const StyledLink = styled.a`
-    display: flex;
-    &:hover {
-        color: #8D8D8D;
-        transition: all .4s ease;
-    }
-`
-
 
 
 const PhotoNavbar = (props) => {
@@ -64,23 +56,24 @@ const PhotoNavbar = (props) => {
     return (
         <Nav color = {props.color}>
             <BlockL>
-                <StyledLink href={"/"}>
+                <Link href={"/"}>
                     Simón Safos
-                </StyledLink>    
+                </Link>    
             </BlockL>
             <BlockR>
-                <StyledLink href={"/photography/street"}>
+                <Link href={"/photography/street"}>
                     street
-                </StyledLink >
-                <StyledLink href={"/photography/nature"}>
+                </Link >
+                <Link href={"/photography/nature"}>
                     nature
-                </StyledLink >
-                <StyledLink href={"/photography/people"}>
+                </Link >
+                
+                <Link href={"/photography/people"}>
                     people
-                </StyledLink >
-                <StyledLink href={"/photography/process"}>
+                </Link >
+                <Link href={"/photography/process"}>
                     process
-                </StyledLink >
+                </Link >
                 
             </BlockR>
             

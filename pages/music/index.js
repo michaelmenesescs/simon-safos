@@ -3,7 +3,7 @@ import Image from 'next/image'
 import PaintingMusic from '../../components/PaintingMusic'
 import styled from 'styled-components'
 import { bgWrap } from '../../styles/Home.module.css'
-import ResponsiveNavbar from '../../components/ResponsiveNavbar'
+import ResponsiveHomeNavbar from '../../components/ResponsiveHomeNavbar'
 import { gql, GraphQLClient } from 'graphql-request'
 import HomeNavbar from '../../components/HomeNavbar'
 
@@ -36,7 +36,7 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Music Landing" layout="fill" objectFit="cover" quality={100} />
             </div>
-            <HomeNavbar />
+            <ResponsiveHomeNavbar />
             <Paintings>
                 {
                     props.pics.map(pic => {

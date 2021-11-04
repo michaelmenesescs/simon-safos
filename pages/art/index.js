@@ -30,6 +30,9 @@ const StyledLink = styled.a`
    &:hover {
     color: black;
     transition: all .4s ease;
+    position: relative; 
+    top: -5px;
+    left: 20px;
   }
  
 `

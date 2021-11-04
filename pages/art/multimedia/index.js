@@ -6,6 +6,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar'
 
 
 const Container = styled.div`
@@ -23,6 +24,7 @@ const Paintings = styled.div`
     flex: 3;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
+    max-width: 1200px;
 `;
 
 const Wrapper = styled.div`
@@ -34,6 +36,8 @@ const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
     flex: 3;
+    justify-content: center;
+    padding: 40px;
 `;
 
 let white = "#FFFFF"
@@ -47,9 +51,12 @@ const index = (props) => {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <div className={bgWrap}>
-                <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
+                <Image src={props.backgroundURL} width={props.width} height={props.height} alt="Subway Landing" layout="fixed" objectFit="full" quality={100} />
             </div>
-            <ArtNavbar />
+            {
+                //<ArtNavbar />
+            }
+            <ResponsiveArtNavbar />
             <PaintingContainer>
                 <Paintings>
                     {
@@ -113,6 +120,8 @@ export async function getStaticProps(context) {
         asset(where: {id: "ckun4k0a86nfg0b30aswhzpxa"}) {
           url
           fileName
+          width
+          height
         }
       }
       
@@ -122,13 +131,15 @@ export async function getStaticProps(context) {
 
     let paintings = data.paintings
     let backgroundURL = data.asset.url
-
-
+    let width = data.asset.width
+    let height = data.asset.height
 
     return {
         props: {
             paintings,
-            backgroundURL
+            backgroundURL,
+            width,
+            height
 
         }, // will be passed to the page component as props
     }

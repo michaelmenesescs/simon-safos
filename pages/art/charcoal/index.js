@@ -6,6 +6,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar'
 
 
 const Container = styled.div`
@@ -14,7 +15,7 @@ const Container = styled.div`
 `;
 const Paintings = styled.div`
     display:flex;
-    padding: 30px;
+    padding: 20px 0px 20px 0px;
     justify-content: space-evenly;
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.15);
@@ -23,6 +24,7 @@ const Paintings = styled.div`
     flex: 3;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
+    max-width: 1200px;
 `;
 
 const Wrapper = styled.div`
@@ -32,9 +34,9 @@ const Wrapper = styled.div`
 
 const PaintingContainer = styled.div`
     display: flex;
-    padding: 10px;
     flex: 3;
-
+    justify-content: center;
+    padding: 40px;
 `;
 
 const index = (props) => {
@@ -48,7 +50,10 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            <ArtNavbar />
+            {
+                //<ArtNavbar />
+            }
+            <ResponsiveArtNavbar />
             <PaintingContainer>
             <Paintings>
             {

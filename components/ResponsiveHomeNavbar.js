@@ -20,9 +20,6 @@ const BackNav = styled(Navbar)`
     justify-items: center;
     background: rgba(0, 0, 0, 0.26);
 
-    @media screen and (max-width: 768px){
-        padding-left: 0;
-    }
 `;
 
 const BlockL = styled.div`
@@ -42,7 +39,6 @@ const BlockR = styled.div`
     justify-content: space-between;
     font-size: 30px;
     font-weight: 500;
-    
 `;
 
 const StyledLink = styled(Nav.Link)`
@@ -53,17 +49,18 @@ const StyledLink = styled(Nav.Link)`
     :hover {
         color: #8D8D8D;
         transition: all .4s ease;
+        position: relative; 
+        top: -5px;
+        left: 20px;
     }
     
 `
 const StyledNav = styled(Nav)`
   display: flex;
   color: white;
+  padding-left: 5%;
 
 `
-
-
-
 const propTypes = {
   home: ["art", "photography", "music", "about"],
   art: ["oil", "charcoal", "subwayseries", "digital", "multimedia"],

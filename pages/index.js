@@ -2,15 +2,14 @@ import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { gql, GraphQLClient } from 'graphql-request'
-import ResponsiveNavbar from '../components/ResponsiveNavbar'
+import ResponsiveHomeNavbar from '../components/ResponsiveHomeNavbar'
 import styled from 'styled-components'
-import HomeNavbar from '../components/HomeNavbar'
 
 const Container = styled.div`
   display:flex;
   flex-direction: column;
-  min-width: 100vw;
   justify-content: space-between;
+  width: 100%;
 `;
 
 const About = styled.div`
@@ -40,22 +39,20 @@ const Contact = styled.div`
   font-family: 'Futura-Light';
   font-size: 30px;  
   color: white;
-
 `
 
 const Links = styled.div`
-  display:flex;
-  flex-direction: row;
-  padding: 30px;
-  font-family: 'Futura-Light';
-  align-items: center;
+    display:flex;
+    flex-direction: row;
+    padding: 30px;
+    font-family: 'Futura-Light';
+    align-items: center;
   `
 
 const Info = styled.div`
   display:flex;
   margin-top: 300px;
   flex-direction: column;
-
 `
 
 const propTypes = {
@@ -76,10 +73,7 @@ export default function Home(props) {
       <div className={styles.bgWrap}>
             <Image src={props.link} alt="7 train" layout="fill" objectFit="cover" quality = {100}/>
       </div>
-      
-      <ResponsiveNavbar />
-
-     
+      <ResponsiveHomeNavbar />
       <About>
         Welcome, Enjoy the many works and vehicles of creation that are the foundations that make Simón.
       </About>
@@ -96,6 +90,7 @@ export default function Home(props) {
           </a>
         </Links>
       </Info>
+     
     
 
     </Container>

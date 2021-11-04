@@ -6,6 +6,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar' 
 
 
 const Container = styled.div`
@@ -23,6 +24,7 @@ const Paintings = styled.div`
     flex: 3;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
+    max-width: 1200px;
 `;
 
 const Wrapper = styled.div`
@@ -34,6 +36,8 @@ const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
     flex: 3;
+    justify-content: center;
+    padding: 40px;
 
 `;
 
@@ -48,7 +52,10 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            <ArtNavbar />
+            {
+                //<ArtNavbar />
+            }
+            <ResponsiveArtNavbar />
             <PaintingContainer>
             <Paintings>
             {

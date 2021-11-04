@@ -4,7 +4,6 @@ import styled from 'styled-components'
 import Link from 'next/link'
 import Image from 'next/image'
 import {bgWrap, bgText} from '../../styles/Home.module.css'
-import ResponsiveNavbar from '../../components/ResponsiveNavbar'
 import {gql, GraphQLClient} from 'graphql-request'
 import Head from 'next/head'
 
@@ -19,9 +18,12 @@ const Container = styled.div`
 
 const StyledLink = styled.a`
     &:hover {
-        color: #8D8D8D;
+        color:#8D8D8D;
+        transition: all .9 ease;
+        position: relative; 
+        top: -5px;
+        left: 20px;
     }
-    font-size: 25pt;
 
 `
 const Links = styled.div`
@@ -31,8 +33,7 @@ const Links = styled.div`
     font-family: 'Typographica';
     margin-left: 5%;
     margin-top: 10%;
-    font-size: 20pt; 
-    font-weight: 100;
+    font-size: 37pt;
 
 `;
 

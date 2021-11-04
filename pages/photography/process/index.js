@@ -2,12 +2,22 @@ import React from 'react'
 import PhotoNavbar from '../../../components/PhotoNavbar'
 import Painting from '../../../components/Painting'
 import styled from 'styled-components'
+import ResponsivePhotoNavbar from '../../../components/ResponsivePhotoNavbar'
 import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
 
-
+const colors = {
+    green: "#3F452D",
+    greenblue: "#344541",
+    darkerblue: "#2A373B",
+    darkblue: "#273339",
+    bronze: "#393326",
+    gray: "#515250",
+    orange: "#70563E",
+    darkorange: "#432611",
+};
 const Container = styled.div`
     display:flex;
     flex-direction: column;
@@ -24,17 +34,13 @@ const Paintings = styled.div`
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
 `;
-
 const Wrapper = styled.div`
     padding: 10px;
 `;
-
-
 const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
     flex: 3;
-
 `;
 
 const index = (props) => {
@@ -48,7 +54,10 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            <PhotoNavbar />
+            {
+                //<PhotoNavbar />
+            }
+            <ResponsivePhotoNavbar color={colors.gray}/>
             <PaintingContainer>
                 <Paintings>
                     {

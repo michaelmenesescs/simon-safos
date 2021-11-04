@@ -10,7 +10,7 @@ const Container = styled.div`
     width: 302px;
     height: 380px;
     box-shadow: ${p => p.shadow ? 'white':'inset 3px 7px 4px 4px rgba(0, 0, 0, 0.25)'};
-    border-radius:10px;
+    border-radius: 10px;
     padding: 15px;
     background-color: ${p => p.bgcolor ? 'white': 'linear-gradient(180deg, rgba(0, 0, 0, 0.2408) 0%, rgba(0, 0, 0, 0.2604) 100%)'};
     backdrop-filter: blur(8px); 

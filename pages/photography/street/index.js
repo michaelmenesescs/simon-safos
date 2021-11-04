@@ -1,11 +1,12 @@
 import React from "react";
-import PhotoNavbar from "../../../components/PhotoNavbar";
+import ResponsivePhotoNavbar from "../../../components/ResponsivePhotoNavbar";
 import Image from "next/image";
 import Link from "next/link"
 import styled from "styled-components";
 import { Navbar, Nav } from "react-bootstrap/Navbar";
 import Head from "next/head";
 import { gql, GraphQLClient, GraphQLCLient } from 'graphql-request'
+
 
 const colors = {
   green: "#3F452D",
@@ -94,9 +95,6 @@ const index = (props) => {
   const GrayToOrange1To9 = props.GrayToOrange.pictures.slice(0, 10)
   const GrayToOrangeEnd = props.GrayToOrange.pictures.slice(11)
 
-  console.log(GrayToOrange1To9)
-
-
 
   return (
     <Photos>
@@ -105,7 +103,10 @@ const index = (props) => {
                 <meta name="description" content="People Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-      <PhotoNavbar color={colors.green} />
+            {
+              //<PhotoNavbar color={colors.green} />
+            }
+      <ResponsivePhotoNavbar color={colors.green} />
       <Green>
         {/* Green Section */}
         {
@@ -389,7 +390,6 @@ export async function getStaticProps(context) {
         }
       }
       `
-
   const GrayToOrangeSection = gql`
       query Blue {
         pictures(where: {section: "graytoorange"}) {
@@ -403,15 +403,12 @@ export async function getStaticProps(context) {
         }
       }
       `
-
   const Green = await graphQLCLient.request(GreenSection)
   const GreenToBlue = await graphQLCLient.request(GreenToBlueSection)
   const Blue = await graphQLCLient.request(BlueSection)
   const BlueToBronze = await graphQLCLient.request(BlueToBronzeSection)
   const BronzeToGray = await graphQLCLient.request(BronzeToGraySection)
   const GrayToOrange = await graphQLCLient.request(GrayToOrangeSection)
-
-  console.log(BronzeToGray)
 
   return {
     props: {
