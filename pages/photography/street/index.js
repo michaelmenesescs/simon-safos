@@ -6,7 +6,7 @@ import styled from "styled-components";
 import { Navbar, Nav } from "react-bootstrap/Navbar";
 import Head from "next/head";
 import { gql, GraphQLClient, GraphQLCLient } from 'graphql-request'
-
+import FooterForAll from '../../../components/FooterForAll'
 
 const colors = {
   green: "#3F452D",
@@ -320,6 +320,7 @@ const index = (props) => {
           }
         </ColumnBreak>
         </PhotoWrapper>
+        <FooterForAll />
       </GrayToOrange>
     </Container>
   );

@@ -5,6 +5,7 @@ import styled from 'styled-components'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
 import ResponsivePhotoNavbar from '../../../components/ResponsivePhotoNavbar'
+import FooterForAll from '../../../components/FooterForAll'
 
 const colors = {
     gray: '#393939',
@@ -125,14 +126,9 @@ const index = (props) => {
                 <meta name="description" content="People Page" />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-            {
-               // <PhotoNavbar color={colors.gray} />
-            }
             <Photos>
                 <Gray>
-                    <PhotoWrapper>
-                        <ResponsivePhotoNavbar />
-                    </PhotoWrapper>
+                <ResponsivePhotoNavbar />
                 </Gray>
                 <GraytoOrange>
                     <PhotoWrapper>
@@ -268,6 +264,7 @@ const index = (props) => {
                     }
                     </PhotoWrapper>
                 </GreenToBlue>
+                <FooterForAll />
             </Photos>
         </Container>
     )

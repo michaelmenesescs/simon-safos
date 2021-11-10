@@ -4,6 +4,7 @@ import styled from 'styled-components'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import FooterForAll from '../../../components/FooterForAll'
 
 
 const colors = {
@@ -472,6 +473,7 @@ const index = (props) => {
                         })
                     }
                     </PhotoWrapper>
+                    <FooterForAll />
                 </YellowToBlue>
             </Photos>
         </Container>

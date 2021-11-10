@@ -7,6 +7,7 @@ import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
 import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar'
+import FooterForAll from '../../../components/FooterForAll'
 
 
 const Container = styled.div`
@@ -28,8 +29,8 @@ const Paintings = styled.div`
 `;
 
 const Wrapper = styled.div`
-    padding: 10px;
-`;
+    padding: 30px;
+`
 
 
 const PaintingContainer = styled.div`
@@ -50,9 +51,6 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Oil Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            {
-                //<ArtNavbar />
-            }
             <ResponsiveArtNavbar />
             <PaintingContainer>
             <Paintings>
@@ -77,6 +75,7 @@ const index = (props) => {
             }
             </Paintings>
             </PaintingContainer>
+            <FooterForAll />
         </Container>
     )
 }

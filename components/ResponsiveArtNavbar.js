@@ -61,7 +61,7 @@ const StyledLink = styled(Nav.Link)`
 const StyledNav = styled(Nav)`
   display: flex;
   color: white;
-
+  
 `
 const propTypes = {
   home: ["art", "photography", "music", "about"],

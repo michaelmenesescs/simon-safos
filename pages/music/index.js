@@ -6,12 +6,14 @@ import { bgWrap } from '../../styles/Home.module.css'
 import ResponsiveHomeNavbar from '../../components/ResponsiveHomeNavbar'
 import { gql, GraphQLClient } from 'graphql-request'
 import HomeNavbar from '../../components/HomeNavbar'
+import FooterForAll from '../../components/FooterForAll'
 
 
 const Container = styled.div`
     display:flex;
     flex-direction: column;
 `;
+
 const Paintings = styled.div`
     display:flex;
     padding: 30px;
@@ -55,6 +57,7 @@ const index = (props) => {
                     })
                 }
             </Paintings>
+            <FooterForAll />
         </Container>
     )
 }

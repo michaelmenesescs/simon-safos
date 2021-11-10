@@ -6,6 +6,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import FooterForAll from '../../../components/FooterForAll'
 import Link from 'next/link'
 import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar'
 
@@ -78,6 +79,7 @@ const index = (props) => {
                     }
                 </Paintings>
             </PaintingContainer>
+            <FooterForAll />
         </Container>
     )
 }

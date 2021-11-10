@@ -7,7 +7,7 @@ import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
 import ResponsiveArtNavbar from '../../../components/ResponsiveArtNavbar'
-
+import FooterForAll from '../../../components/FooterForAll'
 
 const Container = styled.div`
     display:flex;
@@ -15,7 +15,7 @@ const Container = styled.div`
 `;
 const Paintings = styled.div`
     display:flex;
-    padding: 30px;
+    padding: 20px 0px 20px 0px;
     justify-content: space-evenly;
     flex-wrap: wrap;
     background: rgba(0, 0, 0, 0.15);
@@ -82,6 +82,7 @@ const index = (props) => {
                     }
                 </Paintings>
             </PaintingContainer>
+            <FooterForAll />
         </Container>
     )
 }

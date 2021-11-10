@@ -79,7 +79,7 @@ export default function Home(props) {
       </About>
       <Info>
         <Contact>
-            contact: simonsafos@gmail.com
+            contact: inquiries@studiosafos.com
         </Contact>
         <Links>
           <a href = {"https://www.instagram.com/simonsafos/"} >

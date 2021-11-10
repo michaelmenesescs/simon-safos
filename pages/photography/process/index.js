@@ -7,6 +7,7 @@ import { bgWrap, bgText } from '../../../styles/Home.module.css'
 import Image from 'next/image'
 import { gql, GraphQLClient } from 'graphql-request'
 import Head from 'next/head'
+import FooterForAll from '../../../components/FooterForAll'
 
 const colors = {
     green: "#3F452D",
@@ -30,7 +31,7 @@ const Paintings = styled.div`
     background: rgba(0, 0, 0, 0.15);
     box-shadow: inset 1px 6px 5px rgba(0, 0, 0, 0.36);
     backdrop-filter: blur(2px);
-    flex: 3 1 auto;
+    flex: 3 auto;
     /* Note: backdrop-filter has minimal browser support */
     border-radius: 10px;
     max-width: 1200px;
@@ -41,7 +42,7 @@ const Wrapper = styled.div`
 const PaintingContainer = styled.div`
     display: flex;
     padding: 20px;
-    flex: 3;
+    flex: auto;
     justify-content: center;
 `;
 
@@ -56,10 +57,7 @@ const index = (props) => {
             <div className={bgWrap}>
                 <Image src={props.backgroundURL} alt="Subway Landing" layout="fill" objectFit="full" quality={100} />
             </div>
-            {
-                //<PhotoNavbar />
-            }
-            <ResponsivePhotoNavbar color={colors.gray}/>
+            <ResponsivePhotoNavbar />
             <PaintingContainer>
                 <Paintings>
                     {
@@ -83,6 +81,7 @@ const index = (props) => {
                     }
                 </Paintings>
             </PaintingContainer>
+            <FooterForAll />
         </Container>
     )
 }
