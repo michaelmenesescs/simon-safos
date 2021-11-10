@@ -18,11 +18,11 @@ const Container = styled.div`
 
 const StyledLink = styled.a`
     &:hover {
-        color:#8D8D8D;
-        transition: all .9 ease;
-        position: relative; 
-        top: -5px;
-        left: 20px;
+      color: #8D8D8D;
+      transition: all 2s ease;
+      position: relative; 
+      top: -5px;
+      left: 20px;
     }
 
 `
